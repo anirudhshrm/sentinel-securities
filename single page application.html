@@ -1,0 +1,771 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <nav>
+        <ul>
+          <li><a href="">Home</a></li>
+          <li><a href="">Review</a></li> 
+          <li><a href="">Contact Us</a></li>
+          <hr style="border-top-width: 5px;">
+        </ul>
+      </nav>
+</head>
+<header>
+  <nav>
+  <img src="C:\Users\LENOVO\Downloads\asssssss\1.png" height="170px" width="300px">
+          <a href="file:///C:/Users/LENOVO/OneDrive/Desktop/HTML%20FILES/INDEX.html">Home</a>
+          <a href="file:///C:/Users/LENOVO/OneDrive/Desktop/HTML%20FILES/review%20page.html">Review</a> 
+          <a href="file:///C:/Users/LENOVO/Downloads/review%20page.html">submit review</a>
+          <a href="file:///C:/Users/LENOVO/OneDrive/Desktop/HTML%20FILES/login%20ass.html">Login</a>
+          <a href="file:///C:/Users/LENOVO/Downloads/signin.html">signup</a>
+          <hr style="border-top-width: 5px;">
+  </nav>
+  </header>
+<body>
+    <button>
+  <img src="https://cdn.mos.cms.futurecdn.net/PgnLkALrRsJ5amRPTSvgt7.jpeg" alt="48 Laws of Power" height="300px" width="250px">
+    <h3>A court of Thorns and Roses</h3>
+    </button>
+   
+    <button>
+    <img src="https://the-bibliofile.com/blogimages/thehousemaid.jpg" alt="The Psychology of Money" height="300px" width="250px">  
+    <h3>The Housemaid</h3>
+    </button>
+    
+    <button>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8ExQwc2_on7lmJxGvKWkmw5DEQwLZjk6Kpg&s" alt="Intelligent Investor" height="300px" width="250px">
+    <h3>House of Flame and Shadow</h3>
+    </button>
+
+    <button>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAOBlYhQuMwqM2aDpgt_uyFla0o8-jYghHCg&s" alt="Intelligent Investor" height="300px" width="250px">
+    <h3>King of Sloth</h3>
+    </button>
+
+    <button>
+        <img src="https://rukminim2.flixcart.com/image/850/1000/xif0q/regionalbooks/n/h/d/psychology-of-money-original-imagjjyycve7rtay.jpeg?q=90&crop=false" alt="Intelligent Investor" height="300px" width="250px">
+        <h3>The psychology of Money</h3>
+        </button>
+
+</div>
+</body>
+</html> -->
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        .container {
+            display: flex;
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .dashboard {
+            display: none;
+            flex-direction: column;
+            height: 100vh;
+            width: 100vw;
+            background-color: #f0f4f8;
+            overflow-y: auto;
+        }
+        .dashboard-header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            z-index: 1;
+            height: 20px;
+            width: 20px;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .team-box {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .team-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .task-stats {
+            font-size: 0.9em;
+            color: #666;
+        }
+        .task-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .task-list li {
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+        }
+        .bi {
+            margin-right: 10px;
+            font-size: 1.2em;
+            color: #3498db;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="dashboard" class="dashboard">
+            <div class="logo">
+                <img src="dashboard_logo.png">
+            </div>
+            <div class="dashboard-header">
+
+                <div class="logo">ARMOUR SECURITIES</div>
+
+                <h2 id="welcomeMessage"></h2>
+
+                <button onclick="logout()">Logout</button>
+            </div>
+
+            <div class="team-grid" id="teamGrid"></div>
+        </div>
+
+    </div>
+    <script>
+    
+        const teams = [{name: "Frontend Team",members: ["Akshit S.", "Daksh", "Garima", "Akshit V."],
+                tasks: [
+                    { description: "Design login page", completion: true },
+                    { description: "Implement sign-up functionality", completion: false },
+                    { description: "Create dashboard layout", completion: true },
+                    { description: "Optimize for mobile devices", completion: false },
+                    { description: "Implement user profile page", completion: false },
+                    { description: "Add form validation", completion: true },
+                    { description: "Create navigation menu", completion: true },
+                    { description: "Implement dark mode", completion: false }
+                ]
+            },
+            {
+                name: "Backend Team",
+                members: ["Aditya", "Ridhima", "Gunn", "Gauri"],
+                tasks: [
+                    { description: "Set up database schema", completion: true },
+                    { description: "Implement user authentication", completion: true },
+                    { description: "Create API endpoints", completion: false },
+                    { description: "Optimize database queries", completion: false },
+                    { description: "Implement password reset functionality", completion: true },
+                    { description: "Set up email notifications", completion: false },
+                    { description: "Implement data caching", completion: false },
+                    { description: "Create admin dashboard backend", completion: true }
+                ]
+            },
+            {
+                name: "Cybersecurity Team",
+                members: ["Hammad", "Divij", "Dipanshu", "Anirudh"],
+                tasks: [
+                    { description: "Test login functionality", completion: true },
+                    { description: "Perform security testing", completion: false },
+                    { description: "Create test cases for new features", completion: true },
+                    { description: "Conduct performance testing", completion: false },
+                    { description: "Test mobile responsiveness", completion: true },
+                    { description: "Verify API responses", completion: true },
+                    { description: "Conduct user acceptance testing", completion: false },
+                    { description: "Test cross-browser compatibility", completion: false }
+                ]
+            },
+            {
+                name: "DevOps Team",
+                members: ["Mike Tyson", "Muhammad Ali", "Andrew Tate", "Khali"],
+                tasks: [
+                    { description: "Set up CI/CD pipeline", completion: true },
+                    { description: "Configure production servers", completion: true },
+                    { description: "Implement automated backups", completion: false },
+                    { description: "Set up monitoring and alerting", completion: true },
+                    { description: "Optimize server performance", completion: false },
+                    { description: "Implement containerization", completion: true },
+                    { description: "Set up load balancing", completion: false },
+                    { description: "Conduct security audits", completion: false }
+                ]
+            }
+        ];
+
+        let currentUser = null;
+
+        function promptLogin() {
+            const username = prompt("Enter your username:");
+            const password = prompt("Enter your password:");
+            const designation = prompt("Enter your designation (admin or employee):").toLowerCase();
+
+            if (username && password && (designation === 'admin' || designation === 'employee')) {
+                currentUser = { username, designation };
+                document.getElementById('dashboard').style.display = 'block';
+                document.getElementById('welcomeMessage').textContent = Welcome, (username) ($(designation));
+                renderDashboard();
+            } else {
+                alert("Invalid input. Please try again.");
+                promptLogin();
+            }
+        }
+
+        function logout() {
+            currentUser = null;
+            document.getElementById('dashboard').style.display = 'none';
+            promptLogin();
+        }
+
+        function renderDashboard() {
+            const teamGrid = document.getElementById('teamGrid');
+            teamGrid.innerHTML = '';
+
+            teams.forEach(team => {
+                const teamBox = document.createElement('div');
+                teamBox.className = 'team-box';
+
+                const completedTasks = team.tasks.filter(task => task.completion).length;
+                const totalTasks = team.tasks.length;
+
+                teamBox.innerHTML = `
+                    <div class="team-header">
+                        <h3>${team.name}</h3>
+                        <div class="task-stats">
+                            ${completedTasks}/${totalTasks} tasks completed
+                        </div>
+                    </div>
+                    <p>Members: ${team.members.join(', ')}</p>
+                    <h4>Tasks:</h4>
+                    <ul class="task-list">
+                        ${team.tasks.map(task => `
+                            <li>
+                                <i class="bi ${task.completion ? 'bi-check-circle-fill' : 'bi-circle'}"></i>
+                                ${task.description}
+                            </li>
+                        `).join('')}
+                    </ul>
+                `;
+
+                teamGrid.appendChild(teamBox);
+            });
+        }
+        promptLogin();
+    </script>
+</body>
+</html> -->
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        .container {
+            display: flex;
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .dashboard {
+            display: none;
+            flex-direction: column;
+            height: 100vh;
+            width: 100vw;
+            background-color: #f0f4f8;
+            overflow-y: auto;
+        }
+        .dashboard-header {
+            background-color: #3498db;
+            color: white;
+            padding: 25px;
+            padding-left: 120px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            z-index: 1;
+            height: 10px;
+            width: 10px;
+            /* margin-left: 50px; */
+        }
+        .logo img{
+          height: 115px;
+          width: 120px;
+          padding-top: 10px;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .team-box {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .team-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .task-stats {
+            font-size: 0.9em;
+            color: #666;
+        }
+        .task-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .task-list li {
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+        }
+        .bi {
+            margin-right: 10px;
+            font-size: 1.2em;
+            color: #3498db;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="dashboard" class="dashboard">
+            <div class="logo">
+                <img src="C:\Users\LENOVO\Downloads\Untitled design.png" alt="Dashboard Logo">
+            </div>
+            <div class="dashboard-header">
+                <div class="logo">SENTINEL SECURITIES</div>
+                <h2 id="welcomeMessage"></h2>
+                <button onclick="logout()">Logout</button>
+            </div>
+            <div class="team-grid" id="teamGrid"></div>
+        </div>
+    </div>
+
+    <script>
+        const teams = [
+            {
+                name: "Frontend Team",
+                members: ["Akshit S.", "Daksh", "Garima", "Akshit V."],
+                tasks: [
+                    { description: "Design login page", completion: true },
+                    { description: "Implement sign-up functionality", completion: false },
+                    { description: "Create dashboard layout", completion: true },
+                    { description: "Optimize for mobile devices", completion: false },
+                    { description: "Implement user profile page", completion: false },
+                    { description: "Add form validation", completion: true },
+                    { description: "Create navigation menu", completion: true },
+                    { description: "Implement dark mode", completion: false }
+                ]
+            },
+            {
+                name: "Backend Team",
+                members: ["Aditya", "Ridhima", "Gunn", "Gauri"],
+                tasks: [
+                    { description: "Set up database schema", completion: true },
+                    { description: "Implement user authentication", completion: true },
+                    { description: "Create API endpoints", completion: false },
+                    { description: "Optimize database queries", completion: false },
+                    { description: "Implement password reset functionality", completion: true },
+                    { description: "Set up email notifications", completion: false },
+                    { description: "Implement data caching", completion: false },
+                    { description: "Create admin dashboard backend", completion: true }
+                ]
+            }
+            // Other teams...
+        ];
+
+        let currentUser = null;
+
+        function promptLogin() {
+            const username = prompt("Enter your username:");
+            const password = prompt("Enter your password:");
+            const designation = prompt("Enter your designation (admin or employee):").toLowerCase();
+
+            if (username && password && (designation === 'admin' || designation === 'employee')) {
+                currentUser = { username, designation };
+                document.getElementById('dashboard').style.display = 'block';
+                document.getElementById('welcomeMessage').textContent = `Welcome, ${username} (${designation})`;
+                renderDashboard();
+            } else {
+                alert("Invalid input. Please try again.");
+                promptLogin();
+            }
+        }
+
+        function logout() {
+            currentUser = null;
+            document.getElementById('dashboard').style.display = 'none';
+            promptLogin();
+        }
+
+        function renderDashboard() {
+            const teamGrid = document.getElementById('teamGrid');
+            teamGrid.innerHTML = '';
+
+            teams.forEach(team => {
+                const teamBox = document.createElement('div');
+                teamBox.className = 'team-box';
+
+                const completedTasks = team.tasks.filter(task => task.completion).length;
+                const totalTasks = team.tasks.length;
+
+                teamBox.innerHTML = `
+                    <div class="team-header">
+                        <h3>${team.name}</h3>
+                        <div class="task-stats">
+                            ${completedTasks}/${totalTasks} tasks completed
+                        </div>
+                    </div>
+                    <p>Members: ${team.members.join(', ')}</p>
+                    <h4>Tasks:</h4>
+                    <ul class="task-list">
+                        ${team.tasks.map(task => `
+                            <li>
+                                <i class="bi ${task.completion ? 'bi-check-circle-fill' : 'bi-circle'}"></i>
+                                ${task.description}
+                            </li>
+                        `).join('')}
+                    </ul>
+                `;
+
+                teamGrid.appendChild(teamBox);
+            });
+        }
+
+        window.onload = function() {
+            promptLogin();
+        };
+    </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #242429;
+            color: black;
+            overflow: hidden;
+        }
+        
+        .container {
+            display: flex;
+            height: 100vh;
+            background: linear-gradient(135deg, #93929c 0%, #65656a 50%, #24243e 100%);
+        }
+
+        .dashboard {
+            display: none;
+            flex-direction: column;
+            height: 100vh;
+            width: 100vw;
+            background-color: rgb(87, 86, 86);
+            overflow-y: auto;
+        }
+
+        .dashboard-header {
+            background-color: #163e57;
+            color: rgb(19, 10, 10);
+            padding: 25px;
+            padding-left: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #93b1b3;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo img {
+            height: 80px;
+            width: 80px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .team-box {
+            background-color: #0b3854;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .task-stats {
+            font-size: 0.9em;
+            color: #262c2d;
+        }
+
+        .task-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .task-list li {
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .task-list li .description {
+            flex: 1;
+            padding-left: 10px;
+            color: #1e1a1a;
+        }
+
+        .bi {
+            margin-right: 10px;
+            font-size: 1.5em;
+            color: #2e3536;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: #494949;
+        }
+
+        button {
+            background-color: #2e3536;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: black;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="dashboard" class="dashboard">
+            <div class="dashboard-header">
+                <div class="logo">
+                    <img src="C:\Users\LENOVO\Downloads\Untitled design.png" alt="Dashboard Logo">
+                </div>
+                <div class="logo">SENTINEL SECURITIES</div>
+                <h2 id="welcomeMessage"></h2>
+                <button onclick="logout()">Logout</button>
+            </div>
+            <div class="team-grid" id="teamGrid"></div>
+        </div>
+    </div>
+
+    <script>
+        const teams = [
+            {
+                name: "Frontend Team",
+                members: ["Akshit S.", "Daksh", "Garima", "Akshit V."],
+                tasks: [
+                    { description: "Design login page", completion: true },
+                    { description: "Implement sign-up functionality", completion: false },
+                    { description: "Create dashboard layout", completion: true },
+                    { description: "Optimize for mobile devices", completion: false },
+                    { description: "Implement user profile page", completion: false }
+                ]
+            },
+            {
+                name: "Backend Team",
+                members: ["Aditya", "Ridhima", "Gunn", "Gauri"],
+                tasks: [
+                    { description: "Set up database schema", completion: true },
+                    { description: "Implement user authentication", completion: true },
+                    { description: "Create API endpoints", completion: false },
+                    { description: "Optimize database queries", completion: false }
+                ]
+            },
+
+            {
+                name: "Discipline Team",
+                members: ["Anirudh", "krishna", "Raghu", "Apoorva"],
+                tasks: [
+                    { description: "Set event guidelines", completion: true },
+                    { description: "Monitor crowd control", completion: true },
+                    { description: "Prepare disciplinary rules", completion: false },
+                    { description: "Oversee event and coordinate with security team", completion: false }
+                ]
+            },
+
+
+
+
+            {
+                name: "Organizing Team",
+                members: ["dipanshu", "Vivek", "Rohit", "Manya"],
+                tasks: [
+                    { description: "Plan event schedule", completion: true },
+                    { description: "Manage guest invitations", completion: true },
+                    { description: "Arrange venue logistics", completion: false },
+                    { description: "Coordinate with vendors and suppliers", completion: false }
+                ]
+            },
+
+        ];
+
+        let currentUser = null;
+
+        function promptLogin() {
+            const username = prompt("Enter your username:");
+            const password = prompt("Enter your password:");
+            const designation = prompt("Enter your designation (admin or employee):").toLowerCase();
+
+            if (username && password && (designation === 'admin' || designation === 'employee')) {
+                currentUser = { username, designation };
+                document.getElementById('dashboard').style.display = 'block';
+                document.getElementById('welcomeMessage').textContent = `Welcome, ${username} (${designation})`;
+                renderDashboard();
+            } else {
+                alert("Invalid input. Please try again.");
+                promptLogin();
+            }
+        }
+
+        function logout() {
+            currentUser = null;
+            document.getElementById('dashboard').style.display = 'none';
+            promptLogin();
+        }
+
+        function renderDashboard() {
+            const teamGrid = document.getElementById('teamGrid');
+            teamGrid.innerHTML = '';
+
+            teams.forEach(team => {
+                const teamBox = document.createElement('div');
+                teamBox.className = 'team-box';
+
+                const completedTasks = team.tasks.filter(task => task.completion).length;
+                const totalTasks = team.tasks.length;
+
+                teamBox.innerHTML = `
+                    <div class="team-header">
+                        <h3>${team.name}</h3>
+                        <div class="task-stats">
+                            ${completedTasks}/${totalTasks} tasks completed
+                        </div>
+                    </div>
+                    <p>Members: ${team.members.join(', ')}</p>
+                    <h4>Tasks:</h4>
+                    <ul class="task-list">
+                        ${team.tasks.map((task, index) => `
+                            <li>
+                                <input type="checkbox" ${task.completion ? 'checked' : ''} onchange="toggleTaskCompletion(${teams.indexOf(team)}, ${index})">
+                                <span class="description ${task.completion ? 'completed' : ''}">
+                                    ${task.description}
+                                </span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                `;
+
+                teamGrid.appendChild(teamBox);
+            });
+        }
+
+        function toggleTaskCompletion(teamIndex, taskIndex) {
+            const task = teams[teamIndex].tasks[taskIndex];
+            task.completion = !task.completion;
+            renderDashboard();
+        }
+
+        window.onload = function() {
+            promptLogin();
+        };
+    </script>
+</body>
+
+</html>
